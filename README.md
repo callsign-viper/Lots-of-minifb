@@ -13,14 +13,45 @@ Lots of minifb implementation
 - 백엔드 엔지니어링적인 측면에서의 고민이 녹아들어 있으면 좋음(싱글 스레드로 동작하는 redis에 대해 실행 시간을 많이 잡아먹는 operation을 하지 않거나, 데이터베이스 부하에 대한 유연성 고려 등)
 
 ## Model(Validation 포함)
-### 사용자
-- ID(string, PK, unique)
-- 이메일(string, unique, 정규식 검증)
-- 비밀번호(string, pbkdf2_hamc hashed : like Werkzeug's generate_password_hash, 특수문자 포함 10자 이상)
-- created_at
+### user
+- ID(string, PK, length 4~50)
+- 비밀번호(string, pbkdf2_hamc hashed : like Werkzeug's generate_password_hash, length 10~100)
+- 이름(string, length 2~16)
+- 별명(string, nullable, length 1~30)
+- 소개(string, nullable, length 1~85)
+- created_at(timestamp, default now)
+
+### post
+- owner(References user)
+- 내용(string, length 1~3000)
+- created_at(timestamp, default now)
+
+### reaction_post
+- 사용자(References user)
+- 글(References post)
+- 리액션 타입(int, 1~5)
+- created_at(timestamp, default now)
+
+### comment
+- 사용자(References user)
+- 글(References post)
+- 내용(string, length 1~1000)
+- created_at(timestamp, default now)
+
+### reaction_comment
+- 사용자(References user)
+- 댓글(References comment)
+- 리액션 타입(int, 1~5)
+- created_at(timestamp, default now)
+
+### notification
+- 사용자(References user)
+- 알림 타입(int, 1~2, 1: 내 글에 댓글을 남김, 2: 내 글에 좋아요를 남김)
+- 알림을 일으킨 사용자(References user)
+- 연걸된 글(References post)
+- 읽음 여부(bool, default false)
+- created_at(timestamp, default now)
 
 ## API
 ### Frontend API
 ### Back Office API
-
-## 
