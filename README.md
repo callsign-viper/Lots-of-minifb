@@ -91,3 +91,24 @@ Lots of minifb implementation
 - 알림 읽음
 
 ### Back Office API
+#### 서버 통계(optional)
+InfluxDB+Chronograf나 ElasticSearch+Kibana와 같은 로깅 시스템과의 연동을 하는 게 좋으므로 optional
+
+- rps
+- 최근 24시간동안 요청 수
+- status code별 count
+- API endpoint별 count
+
+#### 서비스 통계
+- 총 게시글 수
+- 총 사용자 수
+- 오늘 올라온 게시글 수
+
+## 에러 핸들링
+```
+{
+  "result": "Forbidden",
+  "hint": "You have not permission for 'DELETE /post/14'"
+}
+```
+`result`에 status code와 status message를, 'hint'에 문제 상황을 명시. `500 Internal Server Error`의 경우, 에러 메시지(`str(e)`)를 response
