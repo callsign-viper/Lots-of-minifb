@@ -30,12 +30,14 @@ Lots of minifb implementation
 - 사용자(References user)
 - 글(References post)
 - 리액션 타입(int, 1~5)
+- 수정됨 여부(bool, default false)
 - created_at(timestamp, default now)
 
 ### comment
 - 사용자(References user)
 - 글(References post)
 - 내용(string, length 1~1000)
+- 수정됨 여부(bool, default false)
 - created_at(timestamp, default now)
 
 ### reaction_comment
@@ -60,5 +62,18 @@ Lots of minifb implementation
 - 회원가입
 - 임시 비밀번호 발급
 - 비밀번호 변경
+- 별명 변경
+- 소개 변경
+- 재량에 따라, 인증 관련 API(JWT token refresh 등)
+
+#### 글
+- 게시글 업로드
+- 게시글 수정
+- 게시글 삭제
+- 게시글 목록 조회(pagination)
+
+#### 타임라인
+- 내 타임라인
+- 다른 사용자의 타임라인
 
 ### Back Office API
