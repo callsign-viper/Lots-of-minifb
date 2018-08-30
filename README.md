@@ -111,4 +111,4 @@ InfluxDB+Chronograf나 ElasticSearch+Kibana와 같은 로깅 시스템과의 연
   "hint": "You have not permission for 'DELETE /post/14'"
 }
 ```
-`result`에 status code와 status message를, 'hint'에 문제 상황을 명시. `500 Internal Server Error`의 경우, 에러 메시지(`str(e)`)를 response
+`result`에 status message를, 'hint'에 문제 상황을 명시. `500 Internal Server Error`의 경우, 에러 메시지(`str(e)`)를 response
