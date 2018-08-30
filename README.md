@@ -54,4 +54,11 @@ Lots of minifb implementation
 
 ## API
 ### Frontend API
+#### 계정
+- ID 중복체크
+- 로그인
+- 회원가입
+- 임시 비밀번호 발급
+- 비밀번호 변경
+
 ### Back Office API
