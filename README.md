@@ -3,6 +3,8 @@ Lots of minifb implementation
 
 동일한 백엔드 어플리케이션(조그마한 페이스북 clone)에 대해, 기술스택을 바꿔가며 수많은 구현체를 만들어 나가는 프로젝트([realworld](https://github.com/gothinkster/realworld)처럼)
 
+## Implementations
+
 ## 전제조건
 - 별도의 인프라 없이, Amazon EC2와 같은 compute cloud에서 자체적으로 구성한다고 가정 : ex) 파일 관리를 위해 S3를 별도로 사용하지 않음
 - 모든 API는 테스트되어야 함(view function에 한해서는, 되도록 테스트 커버리지를 100%로 유지)
